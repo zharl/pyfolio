@@ -13,7 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from __future__ import division
+from __future__ import print_function
 
+from builtins import range
 import warnings
 from time import time
 
@@ -1408,7 +1410,7 @@ def create_risk_tear_sheet(positions,
             style_axes.append(plt.subplot(gs[i, :], sharex=style_axes[0]))
 
         j = 0
-        for name, df in style_factor_panel.iteritems():
+        for name, df in style_factor_panel.items():
             sfe = risk.compute_style_factor_exposures(positions, df)
             risk.plot_style_factor_exposures(sfe, name, style_axes[j])
             j += 1
@@ -1542,7 +1544,7 @@ def create_perf_attrib_tear_sheet(returns,
 
     if factor_partitions is not None:
 
-        for factor_type, partitions in factor_partitions.iteritems():
+        for factor_type, partitions in factor_partitions.items():
 
             columns_to_select = perf_attrib_data.columns.intersection(
                 partitions
@@ -1557,7 +1559,7 @@ def create_perf_attrib_tear_sheet(returns,
             )
             current_section += 1
 
-        for factor_type, partitions in factor_partitions.iteritems():
+        for factor_type, partitions in factor_partitions.items():
 
             perf_attrib.plot_risk_exposures(
                 portfolio_exposures[portfolio_exposures.columns
